@@ -44,6 +44,38 @@ public static void rotateGroceries(String[] groceryList) {
 
 # Java Code Challenge: Loops Involving ArrayLists
 
+public class Bee {
+  private String name;
+  private boolean isHome;
+
+  public Bee(String name) {
+    this.name = name;
+    this.isHome = true;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String newName) {
+    this.name = newName;
+  }
+
+  public boolean isHome() {
+    return this.isHome;
+  }
+
+  public void leaveHome() {
+    this.isHome = false;
+  }
+
+  public void returnHome() {
+    this.isHome = true;
+  }
+} 
+
+# exercise
+
 public void printBees() {
   for (Bee b : this.beeList) {
     System.out.println(b.getName());
