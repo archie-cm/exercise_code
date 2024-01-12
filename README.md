@@ -1,1 +1,1 @@
-# exercise_java
+# exercise code
