@@ -1,17 +1,17 @@
-# DATEADD alternative in Postgres
+-- DATEADD alternative in Postgres
 
 SELECT CURRENT_DATE + '1 day'::INTERVAL
 SELECT '1999-12-11'::TIMESTAMP + '19 days'::INTERVAL
 SELECT '1 month'::INTERVAL + '1 month 3 days'::INTERVAL
 
-# Comma separated values of a column
+-- Comma separated values of a column
 
 SELECT
  STRING_AGG(<TABLE_NAME>.<COLUMN_NAME>, ',')
 FROM
  <SCHEMA_NAME>.<TABLE_NAME> T
 
- # Delete duplicate records from postgres table
+ -- Delete duplicate records from postgres table
 
 DELETE
  FROM <SCHEMA_NAME>.<Table_NAME>
@@ -27,7 +27,7 @@ WHERE
  )
 ;
 
-#  Update query with join between two tables alternative since Postresql does not support join in update query
+-- Update query with join between two tables alternative since Postresql does not support join in update query
 
 UPDATE <SCHEMA_NAME>.<TABLE_NAME_1> AS A
 SET <COLUMN_1> = TRUE 
@@ -36,7 +36,7 @@ WHERE
  A.<COLUMN_2> = B.<COLUMN_2> AND
  A.<COLUMN_3> = B.<COLUMN_3>
 
-# Difference between two date timestamps month wise and year wise
+-- Difference between two date timestamps month wise and year wise
 
 SELECT
  (
@@ -45,9 +45,9 @@ SELECT
  (DATE_PART('month', AgeonDate) - DATE_PART('month', tmpdate))
  )
 FROM dbo."Table1"
-SELECT (DATE_PART('year', AgeonDate) - DATE_PART('year', tmpdate)) FROM dbo."Table1
+SELECT (DATE_PART('year', AgeonDate) - DATE_PART('year', tmpdate)) FROM dbo."Table1;
 
-# Query to Copy/Move/Transafer table data from one database to other database table with same schema
+-- Query to Copy/Move/Transafer table data from one database to other database table with same schema
 
 CREATE EXTENSION DBLINK;
 
