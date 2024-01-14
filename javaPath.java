@@ -135,4 +135,20 @@ public void renameBees(ArrayList<String> newNames) {
   }
 }
 
+# 2D array
+public static int largestColumn(int[][] arr2D) {
+    int largestColumn = 0;
+    int largestNumber = 0;
+    for (int col = 0; col < arr2D[0].length; col++){
+    int columnVal = 0;
+        for (int row = 0; row < arr2D.length; row++) {
+            columnVal += arr2D[row][col];
+        }
+        if (columnVal > largestNumber) {
+            largestNumber = columnVal;
+            largestColumn = col;
+        }
+    }
+    return largestColumn;
+} 
 
