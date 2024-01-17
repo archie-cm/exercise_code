@@ -42,7 +42,7 @@ public static void rotateGroceries(String[] groceryList) {
   }
 }
 
-# Java Code Challenge: Loops Involving ArrayLists
+// Java Code Challenge: Loops Involving ArrayLists
 
 public class Bee {
   private String name;
@@ -92,7 +92,7 @@ public class BeeHive {
   }
 }
 
-# exercise
+// exercise
 
 public void printBees() {
   for (Bee b : this.beeList) {
@@ -135,7 +135,7 @@ public void renameBees(ArrayList<String> newNames) {
   }
 }
 
-# 2D array
+// 2D array
 public static int largestColumn(int[][] arr2D) {
     int largestColumn = 0;
     int largestNumber = 0;
