@@ -45,7 +45,7 @@ SELECT
  (DATE_PART('month', AgeonDate) - DATE_PART('month', tmpdate))
  )
 FROM dbo."Table1"
-SELECT (DATE_PART('year', AgeonDate) - DATE_PART('year', tmpdate)) FROM dbo."Table1;
+SELECT (DATE_PART('year', AgeonDate) - DATE_PART('year', tmpdate)) FROM dbo."Table1";
 
 -- Query to Copy/Move/Transafer table data from one database to other database table with same schema
 
