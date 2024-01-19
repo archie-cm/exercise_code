@@ -312,3 +312,59 @@ class InsertionSort {
   }
 }
 
+// Language Families
+
+// Language.java
+class Language {
+  protected String name;
+  protected int numSpeakers;
+  protected String regionsSpoken;
+  protected String wordOrder;
+
+  Language(String langName, int speakers, String regions, String wdOrders) {
+    this.name = langName;
+    this.numSpeakers = speakers;
+    this.regionsSpoken = regions;
+    this.wordOrder = wdOrders;
+  }
+
+  public void getInfo() {
+    System.out.println(this.name + " is spoken by " + this.numSpeakers + " people mainly in " + this.regionsSpoken + ".");
+    System.out.println("The language follows the word order: " + this.wordOrder);
+  }
+
+  public static void main(String[] args) {
+    Language one = new Language("Ana", 2, "Java", "10");
+    one.getInfo();
+    Mayan two = new Mayan("Chuj", 61630);
+    two.getInfo();
+    SinoTibetan three = new SinoTibetan("Chinese", 1000000);
+    three.getInfo();
+    SinoTibetan four = new SinoTibetan("Burmese", 500000);
+    four.getInfo();
+  }
+}
+
+// Mayan.java
+class Mayan extends Language {
+  Mayan(String languageName, int speakers) {
+    super(languageName, speakers, "Central America", "verb-object-subject");
+  }
+
+  @Override
+  public void getInfo() {
+    System.out.println(this.name + " is spoken by " + this.numSpeakers + " people mainly in " + this.regionsSpoken + ".");
+    System.out.println("The language follows the word order: " + this.wordOrder);
+    System.out.println("Fun fact: " + this.name + "is an ergative language.");
+  }
+}
+
+// SinoTibetan.java
+class SinoTibetan extends Language {
+  SinoTibetan(String languageName, int speakers) {
+    super(languageName, speakers, "Asia", "subject-object-verb");
+    if(languageName.contains("Chinese")) {
+      this.wordOrder = "subject-verb-object";
+    }
+  }
+}
