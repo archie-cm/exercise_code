@@ -67,3 +67,6 @@ FROM
 
 -- backup DB schema only
 pg_dump.exe --host=127.0.0.1 --port=5432 --username=idc_archie --format=c --no-privileges --no-owner --file "C:\Users\dump-idc.en-202401231007.sql" --format=c --schema-only -n "public" --verbose "idc.en"
+
+-- restore DB
+pg_restore.exe --verbose --host=localhost --port=5434 --username=postgres --clean --no-owner --format=c --dbname=postgres C:\Users\dump-idc-bk-202401231622
