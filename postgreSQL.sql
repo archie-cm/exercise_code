@@ -64,3 +64,6 @@ FROM
  <COLUMN_1> <DATATYPE_2>,
  <COLUMN_1> <DATATYPE_3>
  );
+
+-- backup DB schema only
+pg_dump.exe --host=127.0.0.1 --port=5432 --username=idc_archie --format=c --no-privileges --no-owner --file "C:\Users\dump-idc.en-202401231007.sql" --format=c --schema-only -n "public" --verbose "idc.en"
