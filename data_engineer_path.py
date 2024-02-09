@@ -238,3 +238,12 @@ def get_work(mass, acceleration, distance):
 train_work = get_work(train_mass, train_acceleration, train_distance)
 
 print("The GE train does " + str(train_work) +" Joules of work over "+ str(train_distance) + " meters.")
+
+# Attribute Functions
+can_we_count_it = [{'s': False}, "sassafrass", 18, ["a", "c", "s", "d", "s"]]
+
+for i in can_we_count_it:
+  if hasattr(i, "count"):
+    print(str(type(i)) + " has the count attribute!")
+  else:
+    print(str(type(i)) + " does not have the count attribute :(")
