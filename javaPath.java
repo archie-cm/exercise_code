@@ -503,3 +503,5 @@ public class RestaurantController {
 }
 // cmd POST REQUEST
 curl -X POST -d "{\"name\":\"Pizza Hut\", \"line1\":\"123 Main St.\", \"city\":\"San Diego\", \"state\":\"CA\", \"zipCode\":\"90029\"}" -H "Content-Type: application/json" http://localhost:4001/restaurants/
+
+curl -i https://api.coinbase.com/v2/prices/BTC-USD/buy
