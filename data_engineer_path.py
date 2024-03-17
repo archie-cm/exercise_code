@@ -646,3 +646,14 @@ with open('logger.csv','w') as logger_csv:
 
   for item in access_log:
     log_writer.writerow(item)
+
+# write json
+import json
+
+data_payload = [
+  {'interesting message': 'What is JSON? A web application\'s little pile of secrets.',
+   'follow up': 'But enough talk!'}
+]
+
+with open('data.json', 'w') as data_json:
+  json.dump(data_payload, data_json)
