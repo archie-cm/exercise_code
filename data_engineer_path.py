@@ -703,3 +703,14 @@ with open('new_password.csv','w') as new_passwords_obj:
 """
 
   new_passwords_obj.write(slash_null_sig)
+
+# add column & apply(lambda)
+import pandas as pd
+
+df = pd.read_csv('employees.csv')
+
+# Add columns here
+get_last_name = lambda name: name.split(' ')[-1]
+
+df['last_name'] = df.name.apply(get_last_name)
+print(df)
