@@ -727,3 +727,40 @@ orders['shoe_source'] = orders.shoe_material.apply(lambda source: 'animal' if so
 orders['salutation'] = orders.apply(lambda row: 'Dear Mr. ' + row.last_name if row.gender == 'male' else 'Dear Ms. ' + row.last_name, axis = 1)
 
 print(orders)
+
+
+# Petal Power Inventory
+import codecademylib3
+import pandas as pd
+
+inventory = pd.read_csv('inventory.csv')
+
+# print(inventory.head(10))
+
+staten_island = inventory[inventory.location == 'Staten Island'].head(10)
+
+# print(staten_island)
+
+product_request = staten_island.product_description
+
+# print(product_request)
+
+seed_request = inventory[(inventory.location == 'Brooklyn') & (inventory.product_type == 'seeds')]
+
+# print(seed_request)
+
+inventory['in_stock'] = inventory.quantity.apply(lambda quantity: True if quantity > 0 else False)
+
+# print(inventory)
+
+inventory['total_value'] = inventory.apply(lambda row: row['price'] * row['quantity'], axis = 1)
+
+# print(inventory)
+
+combine_lambda = lambda row: \
+    '{} - {}'.format(row.product_type,
+                     row.product_description)
+  
+inventory['full_description'] = inventory.apply(combine_lambda, axis = 1)
+
+print(inventory)
