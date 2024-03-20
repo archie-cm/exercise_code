@@ -714,3 +714,16 @@ get_last_name = lambda name: name.split(' ')[-1]
 
 df['last_name'] = df.name.apply(get_last_name)
 print(df)
+
+# modifying DataFrame
+import pandas as pd
+
+orders = pd.read_csv('shoefly.csv')
+
+print(orders.head())
+
+orders['shoe_source'] = orders.shoe_material.apply(lambda source: 'animal' if source == 'leather' else 'vegan')
+
+orders['salutation'] = orders.apply(lambda row: 'Dear Mr. ' + row.last_name if row.gender == 'male' else 'Dear Ms. ' + row.last_name, axis = 1)
+
+print(orders)
