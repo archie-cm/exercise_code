@@ -764,3 +764,15 @@ combine_lambda = lambda row: \
 inventory['full_description'] = inventory.apply(combine_lambda, axis = 1)
 
 print(inventory)
+
+# note pandas
+df.column_name.command()
+Command | Description
+mean | Average of all values in column
+std | Standard deviation
+median | Median
+max | Maximum value in column
+min | Minimum value in column
+count | Number of values in column
+nunique | Number of unique values in column
+unique | List of unique values in column
