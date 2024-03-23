@@ -44,3 +44,31 @@ where artist='Lady Gaga';
 -- Lady Gaga	6	36.0	-28.0	24	-14
 -- Lady Gaga	7	30.5	-5.5	36	-12
 -- Lady Gaga	8	27.0	-3.5	47	-11
+
+
+-- LEAD
+SELECT
+  artist,
+  week,
+  streams_millions,
+  LEAD(streams_millions,1) OVER (
+    PARTITION BY artist
+    ORDER BY week
+  ) - streams_millions as 'streams_millions_change',
+  chart_position,
+  chart_position - LEAD(chart_position,1) OVER (
+    PARTITION BY artist
+    ORDER BY week
+  ) as 'chart_position_change'
+FROM
+  streams;
+--  result
+-- artist	week	streams_millions	streams_millions_change	chart_position	chart_position_change
+-- Bad Bunny	1	33.7	35.9	25	14
+-- Bad Bunny	2	69.6	-10.6	11	0
+-- Bad Bunny	3	59.0	-9.3	11	-5
+-- Bad Bunny	4	49.7	-7.4	16	-4
+-- Bad Bunny	5	42.3	0.5	20	1
+-- Bad Bunny	6	42.8	-1.1	19	-1
+-- Bad Bunny	7	41.7	-2.4	20	-1
+-- Bad Bunny	8	39.3		21	nan nan
