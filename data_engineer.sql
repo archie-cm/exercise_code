@@ -72,3 +72,26 @@ FROM
 -- Bad Bunny	6	42.8	-1.1	19	-1
 -- Bad Bunny	7	41.7	-2.4	20	-1
 -- Bad Bunny	8	39.3		21	nan nan
+
+
+-- NTILE
+select
+  ntile(4) over (
+    partition by week
+    order by streams_millions desc
+  ) as 'quartile',
+  artist,
+  week,
+  streams_millions
+from
+  streams;
+-- result
+-- quartile	artist	week	streams_millions
+-- 1	Drake	1	288.2
+-- 1	The Weeknd	1	76.3
+-- 2	Luke Combs	1	55.8
+-- 2	Taylor Swift	1	47.7
+-- 3	Doja Cat	1	41.7
+-- 3	Bad Bunny	1	33.7
+-- 4	Beyoncé	1	26.3
+-- 4	Lady Gaga	1	15.4
