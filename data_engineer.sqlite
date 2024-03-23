@@ -1,0 +1,7 @@
+SELECT username, posts,
+  LAST_VALUE(posts) OVER (
+    PARTITION BY username
+    ORDER BY posts
+    RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+  ) as 'most_post'
+FROM social_media;
