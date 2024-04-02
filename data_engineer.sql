@@ -174,7 +174,11 @@ CASE
       OR subscription_end IS NULL
     ) THEN 1
   ELSE 0
-END as is_active
+END as is_active,
+  CASE 
+  WHEN subscription_end BETWEEN first_day AND last_day THEN 1
+  ELSE 0
+END as is_canceled
 FROM cross_join)
 SELECT *
 FROM status
